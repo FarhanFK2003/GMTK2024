@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 48f4e43eb13ded149b8faaaed69e1946, type: 3}
       propertyPath: m_LocalScale.x
-      value: 13.979438
+      value: 11.261136
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 48f4e43eb13ded149b8faaaed69e1946, type: 3}
       propertyPath: m_LocalScale.y
-      value: 13.979438
+      value: 11.261136
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 48f4e43eb13ded149b8faaaed69e1946, type: 3}
       propertyPath: m_LocalScale.z
-      value: 13.979438
+      value: 11.261136
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 48f4e43eb13ded149b8faaaed69e1946, type: 3}
       propertyPath: m_LocalPosition.x
@@ -74,6 +74,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 48f4e43eb13ded149b8faaaed69e1946, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3423572586590101106}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 48f4e43eb13ded149b8faaaed69e1946, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8414901918916741357}
   m_SourcePrefab: {fileID: 100100000, guid: 48f4e43eb13ded149b8faaaed69e1946, type: 3}
 --- !u!4 &8179561506531555414 stripped
 Transform:
@@ -122,3 +125,26 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!136 &8414901918916741357
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8847448421933900524}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.42609322
+  m_Height: 2.1968024
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.88157934, z: 0.07390684}
