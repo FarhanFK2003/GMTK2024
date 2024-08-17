@@ -16,9 +16,11 @@ public class PlayerController : MonoBehaviour
         bool isKicking = currentState.IsName("CharacterArmature_Kick_Left");
         bool isInteracting = currentState.IsName("CharacterArmature_Interact");
         bool isPunching = currentState.IsName("CharacterArmature_Punch_Left");
+        bool isShooting = currentState.IsName("CharacterArmature_Gun_Shoot");
+        bool isSlashing = currentState.IsName("CharacterArmature_Sword_Slash");
 
         // Set the canMove flag based on the animations
-        canMove = !(isKicking || isInteracting || isPunching);
+        canMove = !(isKicking || isInteracting || isPunching || isShooting || isSlashing);
 
         // If the player can move, handle movement and rotation
         if (canMove)
@@ -69,9 +71,23 @@ public class PlayerController : MonoBehaviour
         }
 
         // Check for punch action
-        if (Input.GetMouseButtonDown(0)) // Left Mouse Button
+        //if (Input.GetKeyDown(KeyCode.E)) // Key E for Punch
+        //{
+        //    animator.SetTrigger("isPunch");
+        //    canMove = false;
+        //}
+
+        // Check for shoot action
+        if (Input.GetMouseButtonDown(0)) // Left Mouse Button for Shoot
         {
-            animator.SetTrigger("isPunch");
+            animator.SetTrigger("isShoot");
+            canMove = false;
+        }
+
+        // Check for slash action
+        if (Input.GetMouseButtonDown(1)) // Right Mouse Button for Slash
+        {
+            animator.SetTrigger("isSlash");
             canMove = false;
         }
     }
