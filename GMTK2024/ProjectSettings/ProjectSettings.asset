@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: 0e61af9247643124aa1fb6971c89fa82
+  productGUID: f3f7aa388bc4bcd4590ae0c7c0215720
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -846,10 +846,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: df5db4a8-bf5c-4639-b117-bb7db8d96de8
+  cloudProjectId: b82cbdc1-073c-4d44-9fe3-41c45cc2db21
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: GMTK2024
+  projectName: GMTK2024 2024-08-17_17-58-19
   organizationId: farhanfk
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
