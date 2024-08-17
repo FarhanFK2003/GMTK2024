@@ -13,9 +13,9 @@ public class PlayerController : MonoBehaviour
     {
         // Check if any action animations are playing
         AnimatorStateInfo currentState = animator.GetCurrentAnimatorStateInfo(0);
-        bool isKicking = currentState.IsName("CharacterArmature_Kick");
+        bool isKicking = currentState.IsName("CharacterArmature_Kick_Left");
         bool isInteracting = currentState.IsName("CharacterArmature_Interact");
-        bool isPunching = currentState.IsName("CharacterArmature_Punch");
+        bool isPunching = currentState.IsName("CharacterArmature_Punch_Left");
 
         // Set the canMove flag based on the animations
         canMove = !(isKicking || isInteracting || isPunching);
