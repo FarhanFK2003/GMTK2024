@@ -3,7 +3,27 @@ guid: a9477aa3325ca5e429f77f5dc0b284a3
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DarkGrey
+    second: {fileID: 2100000, guid: fcb5803a3c3109340aa82f07ac3998b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Grey
+    second: {fileID: 2100000, guid: 11c6a77dfff7b3b498e26dc0addd6f51, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Texture_Signs
+    second: {fileID: 2100000, guid: fa3eb96d1c7fc5349a0f7beaa7c7d01d, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Texture_Sign
+    second: {fileID: 2800000, guid: 0803fbb178ac78b4385ef7b95d6ecc65, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

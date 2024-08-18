@@ -3,7 +3,22 @@ guid: 8e04408207d14cc4596b311ecb314f18
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Atlas
+    second: {fileID: 2100000, guid: b8ba22c6996d8f7458d9d17dc6e90d43, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Window
+    second: {fileID: 2100000, guid: 387da32d1bdd7674798f69c52ed29a31, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Atlas_Pirate
+    second: {fileID: 2800000, guid: 72cbefd6dcdee084ea9fcca2f84639c4, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
