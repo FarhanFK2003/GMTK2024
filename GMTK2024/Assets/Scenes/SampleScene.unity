@@ -962,6 +962,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7344020613664197167, guid: 51c3d5bf446041f42b6b72bc1513ce25, type: 3}
+      propertyPath: particleSpawnOffsetY
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7344020613664197167, guid: 51c3d5bf446041f42b6b72bc1513ce25, type: 3}
       propertyPath: particleSpawnPosition
       value: 
       objectReference: {fileID: 1016731835}
