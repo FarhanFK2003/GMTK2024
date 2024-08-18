@@ -1003,6 +1003,7 @@ public class PlayerController : MonoBehaviour
         bool isShooting = currentState.IsName("CharacterArmature_Gun_Shoot");
         bool isSlashing = currentState.IsName("CharacterArmature_Sword_Slash");
         bool isDead = currentState.IsName("CharacterArmature_Death");
+        bool isHurt = currentState.IsName("CharacterArmature_HitReceive_2");
 
         // Set the canMove flag based on the animations
         canMove = !(isKicking || isInteracting || isPunching || isShooting || isSlashing || isDead);
@@ -1167,8 +1168,16 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Damage");
+
             // Reduce health
             TakeDamage(10.0f); // You can adjust the damage value as needed
+
+            if(currentHealth > 0)
+            {
+                // Trigger hurt animation
+                animator.SetTrigger("isHurt");
+            }
+
         }
     }
 
