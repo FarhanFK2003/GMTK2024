@@ -3,7 +3,17 @@ guid: 86c875a7cdbea4f449b8a2e5f23d514f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Obstacles_Color_Palette_01
+    second: {fileID: 2100000, guid: f50f96452448c4e4d917098af6326c53, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Obstacles_Color_Palette_01
+    second: {fileID: 2800000, guid: 0bce3d4ad563e594da3df06fa52ac91c, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

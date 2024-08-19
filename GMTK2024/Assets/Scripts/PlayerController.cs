@@ -1532,6 +1532,10 @@ public class PlayerController : MonoBehaviour
     public float bulletSpeed = 10.0f;      // Speed of the bullet
     public float maxHealth = 100.0f;       // Maximum health of the player
     public Slider healthSlider;            // Reference to the health slider in the UI
+    public AudioClip bombSound;             // Bomb sound effect
+    public GameObject bombExplosionEffect;  // Particle effect prefab for bomb explosion
+    public AudioClip healthPickupSound;
+    public float healthPickupAmount = 10.0f;
 
     // Sound effects
     public AudioClip shootSound;
@@ -1738,7 +1742,7 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         // Check if the player collided with an enemy
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Trap"))
         {
             Debug.Log("Damage");
 
@@ -1754,6 +1758,59 @@ public class PlayerController : MonoBehaviour
                 audioSource.PlayOneShot(hurtSound);
             }
 
+        }
+
+        // Check if the player collided with a bomb
+        if (collision.gameObject.CompareTag("Bomb"))
+        {
+            Debug.Log("Bomb");
+
+            // Reduce health
+            TakeDamage(20.0f); // You can adjust the damage value as needed
+
+            if (currentHealth > 0)
+            {
+                // Trigger hurt animation
+                animator.SetTrigger("isHurt");
+
+                // Play hurt sound effect
+                audioSource.PlayOneShot(hurtSound);
+            }
+
+            // Instantiate bomb explosion effect at the bomb's position
+            if (bombExplosionEffect != null)
+            {
+                Instantiate(bombExplosionEffect, collision.transform.position, Quaternion.identity);
+            }
+
+            // Play bomb sound effect at the bomb's position
+            if (bombSound != null)
+            {
+                audioSource.PlayOneShot(bombSound);
+            }
+
+            // Optionally destroy the bomb game object
+            Destroy(collision.gameObject);
+        }
+
+        // Handle collision with health bar
+        if (collision.gameObject.CompareTag("Health"))
+        {
+            // Increase player's health
+            currentHealth += healthPickupAmount;
+            if (currentHealth > maxHealth)
+            {
+                currentHealth = maxHealth;
+            }
+
+            // Update the health slider
+            healthSlider.value = currentHealth;
+
+            // Play health pickup sound effect
+            audioSource.PlayOneShot(healthPickupSound);
+
+            // Destroy the health bar GameObject
+            Destroy(collision.gameObject);
         }
     }
 

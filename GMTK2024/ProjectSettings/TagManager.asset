@@ -7,6 +7,10 @@ TagManager:
   - Slash
   - Enemy
   - Bullet
+  - StaticWall
+  - Trap
+  - Bomb
+  - Health
   layers:
   - Default
   - TransparentFX
