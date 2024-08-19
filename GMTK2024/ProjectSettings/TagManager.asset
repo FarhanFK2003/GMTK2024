@@ -11,6 +11,7 @@ TagManager:
   - Trap
   - Bomb
   - Health
+  - Goal
   layers:
   - Default
   - TransparentFX

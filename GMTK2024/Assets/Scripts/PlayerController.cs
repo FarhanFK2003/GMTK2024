@@ -1536,6 +1536,10 @@ public class PlayerController : MonoBehaviour
     public GameObject bombExplosionEffect;  // Particle effect prefab for bomb explosion
     public AudioClip healthPickupSound;
     public float healthPickupAmount = 10.0f;
+    public GameObject goalCanvas;  // Reference to the goal canvas
+    public AudioClip victorySound; // Reference to the victory sound
+    public GameObject loseCanvas;  // Reference to the lose canvas
+    public AudioClip loseSound;    // Reference to the lose sound
 
     // Sound effects
     public AudioClip shootSound;
@@ -1561,6 +1565,17 @@ public class PlayerController : MonoBehaviour
         currentHealth = maxHealth;
         healthSlider.maxValue = maxHealth;
         healthSlider.value = currentHealth;
+
+        // Ensure the goal canvas is initially inactive
+        if (goalCanvas != null)
+        {
+            goalCanvas.SetActive(false);
+        }
+
+        if (loseCanvas != null)
+        {
+            loseCanvas.SetActive(false);
+        }
     }
 
     void Update()
@@ -1812,6 +1827,31 @@ public class PlayerController : MonoBehaviour
             // Destroy the health bar GameObject
             Destroy(collision.gameObject);
         }
+
+        if (collision.gameObject.CompareTag("Goal"))
+        {
+            Debug.Log("Goal Reached!");
+
+            // Stop all player movements and actions
+            canMove = false;
+            animator.SetBool("isRunning", false); // Ensure the player is not running
+            animator.SetTrigger("isIdle");        // Set the idle trigger
+
+            // Display the goal canvas
+            if (goalCanvas != null)
+            {
+                goalCanvas.SetActive(true);
+            }
+
+            // Play the victory sound
+            if (victorySound != null)
+            {
+                audioSource.PlayOneShot(victorySound);
+            }
+
+            // Optionally stop time to freeze the game
+            Time.timeScale = 0f;
+        }
     }
 
     void TakeDamage(float damage)
@@ -1839,6 +1879,21 @@ public class PlayerController : MonoBehaviour
 
             // Stop the game
             //StartCoroutine(GameOver());
+
+            // Display the lose canvas
+            if (loseCanvas != null)
+            {
+                loseCanvas.SetActive(true);
+            }
+
+            // Play the lose sound
+            if (loseSound != null)
+            {
+                audioSource.PlayOneShot(loseSound);
+            }
+
+            // Optionally stop time to freeze the game
+            Time.timeScale = 0f;
         }
     }
 }
