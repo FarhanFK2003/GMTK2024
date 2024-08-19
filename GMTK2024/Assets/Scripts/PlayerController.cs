@@ -1711,39 +1711,77 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
     void ShootBullet()
     {
-        // Instantiate the bullet at the bullet spawn point's position and rotation
+        // Instantiate the bullet prefab
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
 
-        // Add force to the bullet to make it move
+        // Get the Rigidbody component
         Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
         if (bulletRb != null)
         {
-            bulletRb.velocity = bulletSpawnPoint.forward * bulletSpeed;
+            // Ensure Rigidbody is not kinematic
+            bulletRb.isKinematic = false;
+
+            // Apply force to the bullet
+            bulletRb.AddForce(bulletSpawnPoint.forward * bulletSpeed, ForceMode.VelocityChange);
         }
 
         // Play shoot sound effect
         audioSource.PlayOneShot(shootSound);
+
+        // Destroy the bullet after 4 seconds
+        Destroy(bullet, 4.0f);
     }
 
-    public void TakeDamage(float damage)
+    void OnCollisionEnter(Collision collision)
     {
-        if (currentHealth <= 0) return; // If player is already dead, do nothing
+        // Check if the player collided with an enemy
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Damage");
 
+            // Reduce health
+            TakeDamage(10.0f); // You can adjust the damage value as needed
+
+            if (currentHealth > 0)
+            {
+                // Trigger hurt animation
+                animator.SetTrigger("isHurt");
+
+                // Play hurt sound effect
+                audioSource.PlayOneShot(hurtSound);
+            }
+
+        }
+    }
+
+    void TakeDamage(float damage)
+    {
         currentHealth -= damage;
+        if (currentHealth < 0)
+        {
+            currentHealth = 0;
+        }
         healthSlider.value = currentHealth;
 
-        if (currentHealth > 0)
+        // Check if the player is dead
+        if (currentHealth <= 0)
         {
-            animator.SetTrigger("isHurt");
-            audioSource.PlayOneShot(hurtSound);
-        }
-        else
-        {
-            animator.SetTrigger("isDeath");
+            // Trigger death animation
+            animator.SetTrigger("isDead");
+
+            // Play death sound effect
             audioSource.PlayOneShot(deathSound);
+
+            // Handle player death (e.g., trigger death animation, restart the game, etc.)
+            Debug.Log("Player is dead!");
+
             canMove = false;
+
+            // Stop the game
+            //StartCoroutine(GameOver());
         }
     }
 }
