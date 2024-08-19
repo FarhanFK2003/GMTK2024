@@ -12,14 +12,15 @@ TagManager:
   - Bomb
   - Health
   - Goal
+  - Wall
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Walls
   - 
   - 
   - 

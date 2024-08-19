@@ -1852,6 +1852,25 @@ public class PlayerController : MonoBehaviour
             // Optionally stop time to freeze the game
             Time.timeScale = 0f;
         }
+
+
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        // Check if the player collided with a wall
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            Debug.Log("Collided with Wall, speed set to 10");
+
+            // Set the player speed to 10
+            speed = 10.0f;
+        }
+        else
+        {
+            // Reset speed to its original value if it's not a wall collision
+            speed = 40.0f; // Replace this with your original speed value
+        }
     }
 
     void TakeDamage(float damage)

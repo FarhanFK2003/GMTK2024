@@ -1016,6 +1016,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5230027014191508741, guid: 663d0935b49a33145a42e2f6f19d9b95, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 299.9973
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082052389026064672, guid: 663d0935b49a33145a42e2f6f19d9b95, type: 3}
+      propertyPath: m_text
+      value: "W  \t\t-  \tForward\nS  \t\t-  \tBackward\nA  \t\t-  \tLeft\nD  \t\t- 
+        \tRight\nLeft Click\t-\tShoot\nRight Click\t-\tSlash\nSpace\t\t-\tRoll\n\n"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
